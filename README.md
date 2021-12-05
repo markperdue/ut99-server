@@ -23,9 +23,10 @@ A ut99 server called 'Another UT Server' will be launched. To customize this ser
 A fully customized ut99 server can be created through a combination of environment variables and a customized `UnrealTournament.ini` file that is mounted into the container. The suggested way to do this is through a `docker-compose` file.
 
 ### Environment Variables
-`APPLY_CUSTOM_FILES` set to true or false. Determines whether custom files will be injecting into the ut-server directories
-
-`SERVER_STRING` set to a ut99 server string that will be passed to ucc-bin server
+| Variable             | Description                                              | Allowed values  | Default                                                     |
+| -------------------- | -------------------------------------------------------- | --------------- | ----------------------------------------------------------- |
+| `APPLY_CUSTOM_FILES` | inject custom files into the ut-server directories       | `true`, `false` | unset                                                       |
+| `SERVER_STRING`      | ut99 server string that will be passed to ucc-bin server |  string         | `CTF-Coret?game=BotPack.CTFGame?mutator=BotPack.InstaGibDM` |
 
 ### Example `docker-compose.yml` file
 An example docker-compose.yml file is below.
@@ -81,6 +82,8 @@ services:
     volumes:
       - /home/user/config/ut99-server/Redirect:/usr/share/nginx/html:ro
 ```
+
+Note - additional configuration would be needed within `UnrealTournament.ini` to set `RedirectToURL`
 
 ### Base config changes
 Changelog of UnrealTournament.ini from base version
