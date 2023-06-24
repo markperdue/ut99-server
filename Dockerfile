@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bullseye-20230109-slim
 
 LABEL maintainer="markaperdue@gmail.com"
 
