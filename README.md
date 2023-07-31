@@ -1,4 +1,4 @@
-A no nonsense Unreal Tournament 99 server running the latest v469b patch on debian 11. The server is the Game of the Year edition so it includes bonus packs 1 through 3.
+A no nonsense Unreal Tournament 99 server running the latest v469c patch on debian 12. The server is the Game of the Year edition so it includes bonus packs 1 through 3.
 
 This image adds support for injecting custom maps, sounds, textures, and system files into the appropriate directories. See the compose file for an example but in general:
 - environment variable `APPLY_CUSTOM_FILES` must be set to true
@@ -95,3 +95,4 @@ Changelog of UnrealTournament.ini from base version
 - removes [UBrowserAll] ListFactories[1]=UBrowser.UBrowserGSpyFact,MasterServerAddress=master0.gamespy.com,MasterServerTCPPort=28900,Region=0,GameName=ut
 - updates [UWeb.WebServer] bEnabled=False to bEnabled=True
 - adds [IpServer.UdpServerUplink] DoUplink=True and UpdateMinutes=1 and MasterServerAddress= and MasterServerPort=27900 and Region=0
+- replaces the online servers that were turned off with community options - https://ut99.org/viewtopic.php?t=15589

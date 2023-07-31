@@ -1,4 +1,4 @@
-FROM debian:bullseye-20230109-slim
+FROM debian:bookworm-20230725-slim
 
 LABEL maintainer="markaperdue@gmail.com"
 
@@ -10,10 +10,11 @@ RUN apt-get update && \
         wget http://ut-files.com/Entire_Server_Download/ut-server-436.tar.gz -O /tmp/ut-server-436.tar.gz && \
         tar -xzf /tmp/ut-server-436.tar.gz -C /opt/ && \
         rm -f /tmp/ut-server-436.tar.gz && \
-        wget https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469b/OldUnreal-UTPatch469b-Linux.tar.bz2 -O /tmp/OldUnreal-UTPatch469b-Linux.tar.bz2 && \
-        tar -xf /tmp/OldUnreal-UTPatch469b-Linux.tar.bz2 -C /opt/ut-server/ && \
-        rm -f /tmp/OldUnreal-UTPatch469b-Linux.tar.bz2 && \
-        chown -R 1000:1000 /opt/ut-server
+        wget https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469c/OldUnreal-UTPatch469c-Linux-x86.tar.bz2 -O /tmp/OldUnreal-UTPatch469c-Linux-x86.tar.bz2 && \
+        tar -xf /tmp/OldUnreal-UTPatch469c-Linux-x86.tar.bz2 -C /opt/ut-server/ && \
+        rm -f /tmp/OldUnreal-UTPatch469c-Linux-x86.tar.bz2 && \
+        chown -R 1000:1000 /opt/ut-server && \
+        chmod +x /opt/ut-server/System/ucc-bin
 
 COPY media/UnrealTournament.ini /opt/ut-server/System/UnrealTournament.ini
 RUN chown utadmin:utadmin /opt/ut-server/System/UnrealTournament.ini
